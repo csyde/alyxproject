@@ -1,0 +1,5 @@
+First release for LisaList announcement. Includes:
+
+lash.pas - skeleton for lash shell. Includes some basic file functions. Currently tested only on Mac OS X 10.10 Yosemite with Free Pascal 2.6.4. 
+alyx.front.bezel.odg and alyx.side.panel.odg - Templates for front and side panels for the case. Print on A3, 11x17, or 19x13 paper, then trace onto plastic panel and cut out. 
+hardware_bom_prelim.txt - first draft of hardware used for the system. Does not include construction materials.
