@@ -21,4 +21,13 @@ Lisaem (lisa.sunder.net) - Lisa hardware emulator
 Mini vMac (www.gryphel.com/c/minivmac) - early Macintosh hardware emulator
 old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware.
 
+Hardware
+========
+
+The current plan is to use a Raspberry Pi B+ as the system board, with the Beaglebone Black as a secondary target and an off-the-shelf powered USB hub as power source and expansion backplane. The RPi will likely use a wireless keyboard and mouse with Wifi and Bluetooth added, but don't expect those to be visible to the emulators. 
+
+The case is approximately 4/5 scale, dictated by the choice of monitor (http://www.adafruit.com/products/1287, 10in HDMI 4 Pi kit). The shell will be painted plexiglas, mounted on a frame made of either PVC pipe or angle iron; sketches of both designs, as well as the templates for the front and side panels of the case, will be available here in LibreOffice (ODF) format. 
+
+Contact
+=======
 The project owner is Brian Connors; you can contact me at connorbd@yahoo.com with suggestions, additions, and patches. Flames, as always, go to /dev/null.
