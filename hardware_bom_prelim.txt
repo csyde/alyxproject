@@ -1,0 +1,16 @@
+Preliminary Hardware Bill of Materials
+======================================
+
+Note: subject to change at random.
+
+Raspberry Pi B+ (logic board - could substitute Beaglebone Black)
+7-port powered USB hub (power supply and backplane)
+Adafruit HDMI 4 Pi 10in display (http://www.adafruit.com/products/1287)
+Cirago BTA7300 Wifi/Bluetooth 3.0 adapter (does not support Bluetooth LE)
+short (~1ft) HDMI A-A cable (A-D for BBB)
+USB A male -> A female port extender (cracked open with power wire cut - may not be needed) (connects USB host port to hub)
+USB A -> 5.2mm barrel jack male (center+) cable (power to screen)
+USB keyboard and mouse
+
+This configuration is so far untested as I've been primarily been trying to get the software working. If you try it, let me 
+know if you come up with a fried Pi or anything else goes wrong.
