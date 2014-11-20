@@ -33,14 +33,36 @@ uses Unix;
 			fpSystem('uname -v');
 		end; 
 	
+	{ procedure makeImage -- creates a disk image isoOut from a specified directory path
+		requires mkisofs to be installed; resulting image is ISO 9660-Joliet }
+		
+	procedure makeImage(path, isoOut, vname: string);
+		begin
+			fpSystem('mkisofs -r -J -o ' + isoOut + ' -V ' + vname + ' ' +path);
+		end;
+		
 	procedure diskMenu;
+		var
+			src: String; 
+			dest: String; 
+			vname: String; 
+			
 		begin
 			repeat 
 			writeln('Disk-tools: Format, make Image, Mount, New folder, Unmount, Burn image, Scavenge, show Online disks');
 			readln(menuCmd);
 			case menuCmd of
 				'm': writeln('m mounts specified disk image or device');
-				'i': writeln('i asks for a directory and creates an image file');
+				'i': begin
+					writeln('source directory?');
+					readln(src);
+					writeln('volume name?');
+					readln(vname);
+					writeln('image filename?');
+					readln(dest);
+					makeimage(src, dest, vname);
+				end;
+				
 				'b': writeln('b copies an image to an empty disk or optical drive');
 				'c': writeln('s invokes fsck or scandisk');
 				'q': writeln('q exits to File menu');
@@ -133,6 +155,8 @@ uses Unix;
 			end;
 		until menuCmd = 'q';
 	end;
+	
+	{ main prompt }
 	
 	begin
 		writeln('Lisaesque App Shell');
