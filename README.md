@@ -32,6 +32,13 @@ The following third-party software is expected to be required for the project an
 * old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware. 
 * Homebrew (http://brew.sh) (Mac) or apt-get (Linux) -- to install dependencies
 
+Issues
+------
+
+* Lisaem is incredibly sluggish on RasPi. Dealing with this is an ongoing issue.
+* No effort whatsoever will be made to support any compiler other than Free Pascal. GNU Pascal is stagnant, p2c and ETH Px are too archaic, and frankly, no dialects other than Delphi (which is what Free Pascal supports) matter anymore. FPC is open source, so live with it.
+* My Pascal code is terrible. Patches and general cleanup are welcome.
+
 Contact
 =======
 The project owner is Brian Connors; you can contact me at connorbd@yahoo.com with suggestions, additions, and patches. Flames, as always, go to /dev/null.
