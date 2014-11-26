@@ -4,7 +4,7 @@ alyxproject
 ALyX (Approximately Lisa on uniX; the y is a Half-Life 2 reference with no other meaning) is a project to build a (rough) model of an Apple Lisa based around a Raspberry Pi and/or Beaglebone Black, using Ray Arachelian's Lisaem for Lisa software, Paul Pratt's mini vMac for old Mac software, and Free Pascal for Unix-side utilities.
 
 Software
-========
+--------
 
 Software specifically written for this project is licensed under the 3-clause ("new") BSD license. 
 
@@ -22,7 +22,7 @@ Mini vMac (www.gryphel.com/c/minivmac) - early Macintosh hardware emulator
 old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware.
 
 Hardware
-========
+--------
 
 The current plan is to use a Raspberry Pi B+ as the system board, with the Beaglebone Black as a secondary target and an off-the-shelf powered USB hub as power source and expansion backplane. The RPi will likely use a wireless keyboard and mouse with Wifi and Bluetooth added, but don't expect those to be visible to the emulators. 
 
@@ -31,11 +31,11 @@ The case is approximately 4/5 scale, dictated by the choice of monitor (http://w
 Dependencies
 ------------
 
-Free Pascal 2.6.x
-LisaEm by Ray Arachelian
-Mini vMac by Paul Pratt
-cdrtools by Jörg Schilling
-A functioning POSIX environment (Linux and OS X are dev platforms)
+*Free Pascal 2.6.x
+*LisaEm by Ray Arachelian
+*Mini vMac by Paul Pratt
+*cdrtools by Jörg Schilling
+*A functioning POSIX environment (Linux and OS X are dev platforms)
 
 Contact
 =======
