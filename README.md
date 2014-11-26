@@ -14,13 +14,6 @@ lash (Lisaesque Application Shell) is loosely based on the menu-driven command l
 
 stata (STATionery Arranger -- named for a hideous Frank Gehry building at MIT) will be a set of scripts implementing a simple stationery pad model for Linux.
 
-The following third-party software is expected to be part of the project and is under the author's own licenses:
-
-Free Pascal and Lazarus (www.freepascal.org) - development language for lash and the hvac GUI
-Lisaem (lisa.sunder.net) - Lisa hardware emulator
-Mini vMac (www.gryphel.com/c/minivmac) - early Macintosh hardware emulator
-old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware.
-
 Hardware
 --------
 
@@ -30,12 +23,14 @@ The case is approximately 4/5 scale, dictated by the choice of monitor (http://w
 
 Dependencies
 ------------
+The following third-party software is expected to be required for the project and is under the author's own licenses:
 
-* Free Pascal 2.6.x
-* LisaEm by Ray Arachelian
-* Mini vMac by Paul Pratt
-* cdrtools by Jörg Schilling
-* A functioning POSIX environment (Linux and OS X are dev platforms)
+* Free Pascal and Lazarus (www.freepascal.org) - development language for lash and the hvac GUI
+* Lisaem (lisa.sunder.net) by Ray Arachelian - Lisa hardware emulator
+* Mini vMac (www.gryphel.com/c/minivmac) - early Macintosh hardware emulator
+* cdrtools (www.cdrecord.org) by Jörg Schilling - mainly for mkisofs 
+* old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware. 
+* Homebrew (http://brew.sh) (Mac) or apt-get (Linux) -- to install dependencies
 
 Contact
 =======
