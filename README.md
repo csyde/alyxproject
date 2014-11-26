@@ -31,11 +31,11 @@ The case is approximately 4/5 scale, dictated by the choice of monitor (http://w
 Dependencies
 ------------
 
-*Free Pascal 2.6.x
-*LisaEm by Ray Arachelian
-*Mini vMac by Paul Pratt
-*cdrtools by Jörg Schilling
-*A functioning POSIX environment (Linux and OS X are dev platforms)
+* Free Pascal 2.6.x
+* LisaEm by Ray Arachelian
+* Mini vMac by Paul Pratt
+* cdrtools by Jörg Schilling
+* A functioning POSIX environment (Linux and OS X are dev platforms)
 
 Contact
 =======
