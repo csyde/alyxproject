@@ -165,7 +165,7 @@ uses Unix;
 		escToShell := false;
 		
 		repeat 
-			writeln('File-mgr, Sysutils, Edit, Debug, Pascal, Basic, C, ?Help, Run shell-cmd, Quit?');
+			writeln('File-mgr, Sysutils, Edit, Debug, Pascal, Basic, C, Web browser, ?Help, Run shell-cmd, Quit?');
 			readln(menuCmd);
 			case menuCmd of
 				'f': fileMenu;
@@ -176,6 +176,7 @@ uses Unix;
 				'b': writeln('b invokes Basic interpreter (default Chipmunk Basic)');
 				'c': writeln('c invokes native IDE (Xcode on OS X, CodeBlocks on Linux, VSX on Windows) via shell script');
 				'r': writeln('r asks for and runs a shell command');
+				'w': writeln('w runs a web browser')
 				'?': writeln('? prints man page');
 				'h': writeln('h also prints man page');
 				'a': aboutBox;
