@@ -1,0 +1,23 @@
+[ALYX_ENV]
+; Development version. Uses values for OS X.
+
+; interactive partition editor
+dpart=fdisk
+
+; text editor
+editor=nano
+
+; image mount command
+imgMnt=hdiutil attach
+
+; pascal-specific ide (Lazarus or fp should be default)
+
+pascalIDE=open /Applications/Lazarus.app
+
+; native OS IDE (Xcode for Mac, Code::Blocks or QT Creator for Linux, VSX/VSC for Windows
+
+nativeIDE=open /Applications/Xcode.app
+
+; disk scan command
+
+fsckIt=diskutil verify /
