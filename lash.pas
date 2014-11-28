@@ -14,6 +14,7 @@
 	* 	see http://opensource.org/licenses/BSD-3-Clause for license text
 	}
 	
+{$H+}	{ stfu about ansistrings in fpsystem }	
 program lash;	
 
 uses Unix;
@@ -144,7 +145,7 @@ uses Unix;
 				'o': writeln('o redirects output to a file');
 				'v': writeln('v checksums specified file');
 				'b': writeln('b backs up your .alyxrc');
-				'c': writeln('c invokes a shell prompt'); 
+				'c': fpsystem('bash'); 
 				's': writeln('s starts the hvac gui');
 				'q': writeln('q exits to main menu');
 				'?': writeln('? prints man page');
