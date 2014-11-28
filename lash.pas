@@ -36,7 +36,9 @@ uses Unix;
 		end; 
 	
 	{ procedure makeImage -- creates a disk image isoOut from a specified directory path
-		requires mkisofs to be installed; resulting image is ISO 9660-Joliet }
+		requires mkisofs to be installed; resulting image is ISO 9660-Joliet 
+		This probably should not be hardcoded, but unless Schily suddenly abandons
+		cdrtools, you probably won't want to use any other program. }
 		
 	procedure makeImage(path, isoOut, vname: string);
 		begin
