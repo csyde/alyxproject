@@ -30,6 +30,7 @@ The following third-party software is expected to be required for the project an
 * Mini vMac (www.gryphel.com/c/minivmac) - early Macintosh hardware emulator
 * cdrtools (www.cdrecord.org) by Jörg Schilling - mainly for mkisofs 
 * old Lisa and Mac system software and ROMs - You'll have to find those. Apple owns the copyrights but they're considered abandonware. 
+* GNU wget (may substitute cURL at a whim)
 * Homebrew (http://brew.sh) (Mac) or apt-get (Linux) -- to install dependencies
 
 Issues
