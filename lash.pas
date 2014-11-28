@@ -14,7 +14,8 @@
 	* 	see http://opensource.org/licenses/BSD-3-Clause for license text
 	}
 	
-{$H+}	{ stfu about ansistrings in fpsystem }	
+{$H+}	{ stfu about ansistrings in fpsystem. Also makes the long pathname problem go away. }
+
 program lash;	
 
 uses Unix;
