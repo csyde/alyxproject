@@ -13,18 +13,20 @@
 	* ©2014 Brian Connors under the three-clause BSD license
 	* 	see http://opensource.org/licenses/BSD-3-Clause for license text
 	}
+
+program lash;
 	
+{$mode objfpc}
 {$H+}	{ stfu about ansistrings in fpsystem. Also makes the long pathname problem go away. }
 
-program lash;	
-
-uses Unix;
+uses Classes,SysUtils,INIFiles,Unix;
 
 	var
 		menuCmd: char;
 		pathname: string; 	{ 	file pathname. Uses Unix syntax, not Lisa (too obscure
 								and too much of a pain in the ass to translate). }
 		escToShell: boolean; 
+		INI:TINIFile;
 	
 	procedure aboutBox;
 		begin
@@ -44,7 +46,16 @@ uses Unix;
 		begin
 			fpSystem('mkisofs -r -J -o ' + isoOut + ' -V ' + vname + ' ' +path);
 		end;
-		
+	
+	{ procedure launchExt -- looks up a shell command in the registry file and executes it }
+	procedure launchExt(iniBlock, regkey: string);
+		var extCmd: string;
+	
+		begin
+			extCmd := INI.ReadString(iniBlock, regKey,'');
+			fpsystem(extCmd);
+		end;
+						
 	procedure diskMenu;
 		var
 			src: String; 
@@ -113,6 +124,7 @@ uses Unix;
 					chdir(pathname);
 					if IOResult <> 0 then writeln('Invalid folder: ',pathname);
 				end;
+				
 				'l': fpsystem('ls -l');
 				'b': writeln('b backs up your working environment (pathname defined in ~/.lashrc)');
 				'c': writeln('c copies a file');
@@ -148,7 +160,7 @@ uses Unix;
 				'o': writeln('o redirects output to a file');
 				'v': writeln('v checksums specified file');
 				'b': writeln('b backs up your .alyxrc');
-				'c': fpsystem('bash'); 
+				'c': fpsystem('bash'); 	{ just kicks you out to bash, then back when you're finished }
 				's': writeln('s starts the hvac gui');
 				'q': writeln('q exits to main menu');
 				'?': writeln('? prints man page');
@@ -167,19 +179,26 @@ uses Unix;
 		writeln('©2014 Brian Connors as part of the ALyX project');
 		escToShell := false;
 		
+		INI := TINIFile.Create('./alyx_reg'); { load and parse registry file }
+		
 		repeat 
-			writeln('File-mgr, Sysutils, Edit, Debug, Pascal, Basic, C, Web browser, ?Help, Run shell-cmd, Quit?');
+			writeln('File-mgr, Sysutils, Edit, Debug, Pascal, Basic, C, Web browser, Grab-URL, ?Help, Run shell-cmd, Quit?');
 			readln(menuCmd);
 			case menuCmd of
 				'f': fileMenu;
 				's': sysMenu;
-				'e': writeln('e invokes editor (default nano)');
+				'e': launchExt('ALYX_ENV','editor');
 				'd': writeln('d invokes debugger (default gdb)');
-				'p': writeln('p invokes Pascal IDE (default fpc IDE)');
+				'p': launchExt('ALYX_ENV','pascalIDE');
 				'b': writeln('b invokes Basic interpreter (default Chipmunk Basic)');
-				'c': writeln('c invokes native IDE (Xcode on OS X, CodeBlocks on Linux, VSX on Windows) via shell script');
-				'r': writeln('r asks for and runs a shell command');
-				'w': writeln('w runs a web browser')
+				'c': launchExt('ALYX_ENV', 'nativeIDE');
+				'r': begin 	{ run a shell command }
+					write('enter command:');
+					readln(pathname);
+					fpsystem(pathname);
+				end;
+				'w': launchExt('ALYX_ENV', 'browser');	
+				'g': writeln('g asks for a url and wgets it');			
 				'?': writeln('? prints man page');
 				'h': writeln('h also prints man page');
 				'a': aboutBox;
