@@ -1,8 +1,8 @@
 [ALYX_ENV]
-; Development version. Uses values for OS X.
+; Development version. Uses values for Linux. Probably not yet useful.
 
 ; interactive partition editor
-dpart=fdisk
+dpart=parted
 
 ; text editor
 editor=nano
@@ -22,6 +22,6 @@ nativeIDE=open /Applications/Xcode.app
 
 fsckIt=diskutil verify /
 
-; default web browser
+; default web browser 
 
-browser=open /Applications/Safari.app
+browser=google-chrome
