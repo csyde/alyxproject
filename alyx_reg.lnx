@@ -16,7 +16,7 @@ pascalIDE=open /Applications/Lazarus.app
 
 ; native OS IDE (Xcode for Mac, Code::Blocks or QT Creator for Linux, VSX/VSC for Windows
 
-nativeIDE=open /Applications/Xcode.app
+nativeIDE=eclipse
 
 ; disk scan command
 
