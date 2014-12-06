@@ -115,7 +115,14 @@ uses Classes,SysUtils,INIFiles,Unix;
 					writeln('current folder: ', pathname);
 				end;
 				
-				'm': writeln('m invokes mv');
+				'm': begin 	{ move/rename a file }
+					write('original:');
+					readln(src);
+					write('new location:');
+					readln(dest);
+					fpsystem('mv ' + src + ' ' + dest);
+				end;
+				
 				'r': writeln('r deletes a file (y/n?)');
 				
 				'p': begin 		{ set-Path (aka cd) }
@@ -126,8 +133,17 @@ uses Classes,SysUtils,INIFiles,Unix;
 				end;
 				
 				'l': fpsystem('ls -l');
+				
 				'b': writeln('b backs up your working environment (pathname defined in ~/.lashrc)');
-				'c': writeln('c copies a file');
+				
+				'c': begin 	{ copy a file }
+					write('source file:');
+					readln(src);
+					write('destination:');
+					readln(dest);
+					fpsystem('cp -R ' + src  + ' ' + dest);
+				end;
+				
 				'q': writeln('q exits to main menu');
 				'd': diskMenu;
 				'e': writeln('e invokes diff');
@@ -187,9 +203,12 @@ uses Classes,SysUtils,INIFiles,Unix;
 			case menuCmd of
 				'f': fileMenu;
 				's': sysMenu;
+				
 				'e': launchExt('ALYX_ENV','editor');
+				
 				'd': writeln('d invokes debugger (default gdb)');
-				'p': launchExt('ALYX_ENV','pascalIDE');
+				
+				'p': launchExt('ALYX_ENV','pascalIDE'); 	{ probably should invoke compilers instead? }	
 				'b': writeln('b invokes Basic interpreter (default Chipmunk Basic)');
 				'c': launchExt('ALYX_ENV', 'nativeIDE');
 				'r': begin 	{ run a shell command }
@@ -198,7 +217,11 @@ uses Classes,SysUtils,INIFiles,Unix;
 					fpsystem(pathname);
 				end;
 				'w': launchExt('ALYX_ENV', 'browser');	
-				'g': writeln('g asks for a url and wgets it');			
+				'g': begin	{ could replace with cURL or define in reg }
+					write('URL to grab: ');
+					readln(pathname);
+					fpsystem('wget ' + pathname);
+				end;			
 				'?': writeln('? prints man page');
 				'h': writeln('h also prints man page');
 				'a': aboutBox;
