@@ -1,5 +1,5 @@
 [ALYX_ENV]
-; Development version. Uses values for Linux. Probably not yet useful.
+; Development version. Uses values for Linux, specifically my personal Knoppix 7.4 install. Probably not useful.
 
 ; interactive partition editor
 dpart=parted
