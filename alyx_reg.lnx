@@ -5,18 +5,18 @@
 dpart=parted
 
 ; text editor
-editor=nano
+editor=xdg-open
 
 ; image mount command
 imgMnt=hdiutil attach
 
 ; pascal-specific ide (Lazarus or fp should be default)
 
-pascalIDE=open /Applications/Lazarus.app
+pascalc=fpc
 
 ; native OS IDE (Xcode for Mac, Code::Blocks or QT Creator for Linux, VSX/VSC for Windows
 
-nativeIDE=eclipse
+cc=fgcc
 
 ; disk scan command
 
