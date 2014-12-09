@@ -12,11 +12,11 @@ imgMnt=hdiutil attach
 
 ; pascal-specific ide (Lazarus or fp should be default)
 
-pascalIDE=open /Applications/Lazarus.app
+pascalc=fpc
 
-; native OS IDE (Xcode for Mac, Code::Blocks or QT Creator for Linux, VSX/VSC for Windows
+; c compiler
 
-nativeIDE=open /Applications/Xcode.app
+cc=clang
 
 ; disk scan command
 

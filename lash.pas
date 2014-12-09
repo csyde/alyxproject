@@ -56,7 +56,7 @@ uses Classes,SysUtils,INIFiles,Unix;
 	
 		begin
 			extCmd := INI.ReadString(iniBlock, regKey,'');
-			fpsystem(extCmd + fn);
+			fpsystem(extCmd + ' ' + fn);
 		end;
 						
 	procedure diskMenu;
@@ -217,9 +217,20 @@ uses Classes,SysUtils,INIFiles,Unix;
 				
 				'd': writeln('d invokes debugger (default gdb)');
 				
-				'p': launchExt('ALYX_ENV','pascalIDE',''); 	{ probably should invoke compilers instead? }	
+				'p': begin 	{ compile pascal source file }
+					write('Pascal source file: ');
+					readln(pathname);
+					launchExt('ALYX_ENV','pascalc', pathname); 
+				end;
+					
 				'b': writeln('b invokes Basic interpreter (default Chipmunk Basic)');
-				'c': launchExt('ALYX_ENV', 'nativeIDE','');
+				
+				'c': begin 	{ compile c/c++/objc source file }
+					write('C/C++/ObjC source file: ');
+					readln(pathname);
+					launchExt('ALYX_ENV','cc', pathname); 
+				end;
+				
 				'r': begin 	{ run a shell command }
 					write('enter command:');
 					readln(pathname);
