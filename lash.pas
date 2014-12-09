@@ -50,6 +50,7 @@ uses Classes,SysUtils,INIFiles,Unix;
 	{ procedure launchExt -- looks up a shell command in the registry file and executes it }
 	{ 	If ALyX gets to the point where a libalyx might be useful, this is the first candidate
 		to break out into a new API. }
+		
 	procedure launchExt(iniBlock, regkey, fn: string);
 		var extCmd: string;
 	
@@ -85,11 +86,13 @@ uses Classes,SysUtils,INIFiles,Unix;
 				'q': writeln('q exits to File menu');
 				'f': writeln('f invokes fdisk');
 				'o': fpSystem('mount'); 	{ show Online volumes }
+				
 				'n': begin 	{ create New folder }
 					write('new folder: ');
 					readln(pathname);
 					mkdir(pathname);
 				end;
+				
 				'?': writeln('? prints man page');
 				'h': writeln('h also prints man page');
 				
@@ -211,6 +214,7 @@ uses Classes,SysUtils,INIFiles,Unix;
 					readln(pathname);
 					launchExt('ALYX_ENV','editor',pathname);
 				end;
+				
 				'd': writeln('d invokes debugger (default gdb)');
 				
 				'p': launchExt('ALYX_ENV','pascalIDE',''); 	{ probably should invoke compilers instead? }	
