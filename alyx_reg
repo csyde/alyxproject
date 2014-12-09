@@ -4,8 +4,8 @@
 ; interactive partition editor
 dpart=fdisk
 
-; text editor
-editor=nano
+; should be open (os x) or xdg-open (linux)
+editor=open
 
 ; image mount command
 imgMnt=hdiutil attach

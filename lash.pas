@@ -48,12 +48,14 @@ uses Classes,SysUtils,INIFiles,Unix;
 		end;
 	
 	{ procedure launchExt -- looks up a shell command in the registry file and executes it }
-	procedure launchExt(iniBlock, regkey: string);
+	{ 	If ALyX gets to the point where a libalyx might be useful, this is the first candidate
+		to break out into a new API. }
+	procedure launchExt(iniBlock, regkey, fn: string);
 		var extCmd: string;
 	
 		begin
 			extCmd := INI.ReadString(iniBlock, regKey,'');
-			fpsystem(extCmd);
+			fpsystem(extCmd + fn);
 		end;
 						
 	procedure diskMenu;
@@ -204,19 +206,22 @@ uses Classes,SysUtils,INIFiles,Unix;
 				'f': fileMenu;
 				's': sysMenu;
 				
-				'e': launchExt('ALYX_ENV','editor');
-				
+				'e': begin { edit file }
+					write('filename?');
+					readln(pathname);
+					launchExt('ALYX_ENV','editor',pathname);
+				end;
 				'd': writeln('d invokes debugger (default gdb)');
 				
-				'p': launchExt('ALYX_ENV','pascalIDE'); 	{ probably should invoke compilers instead? }	
+				'p': launchExt('ALYX_ENV','pascalIDE',''); 	{ probably should invoke compilers instead? }	
 				'b': writeln('b invokes Basic interpreter (default Chipmunk Basic)');
-				'c': launchExt('ALYX_ENV', 'nativeIDE');
+				'c': launchExt('ALYX_ENV', 'nativeIDE','');
 				'r': begin 	{ run a shell command }
 					write('enter command:');
 					readln(pathname);
 					fpsystem(pathname);
 				end;
-				'w': launchExt('ALYX_ENV', 'browser');	
+				'w': launchExt('ALYX_ENV', 'browser', '');	
 				'g': begin	{ could replace with cURL or define in reg }
 					write('URL to grab: ');
 					readln(pathname);
