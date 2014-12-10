@@ -100,7 +100,6 @@ uses Classes,SysUtils,INIFiles,Unix;
 				writeln('Unfamiliar command.');
 			end;
 		until menuCmd = 'q';
-		menuCmd := ''; {reinit to prevent fallthrough}
 	end;
 	
 	{ procedure fileMenu - basic file operations using standard Free Pascal functions }
@@ -166,7 +165,6 @@ uses Classes,SysUtils,INIFiles,Unix;
 				writeln('Unfamiliar command.');
 			end;
 		until menuCmd = 'q';
-		menuCmd := ''; {reinit to prevent fallthrough}
 		
 		{$I+}
 	end;
@@ -193,7 +191,6 @@ uses Classes,SysUtils,INIFiles,Unix;
 				writeln('Unfamiliar command.');
 			end;
 		until menuCmd = 'q';
-		menuCmd := ''; {reinit to prevent fallthrough}
 	end;
 	
 	{ main prompt }
