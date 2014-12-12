@@ -58,7 +58,7 @@ uses Classes,SysUtils,INIFiles,Unix;
 			extCmd := INI.ReadString(iniBlock, regKey,'');
 			fpsystem(extCmd + ' ' + fn);
 		end;
-						
+			
 	procedure diskMenu;
 		var
 			src: String; 
@@ -82,9 +82,9 @@ uses Classes,SysUtils,INIFiles,Unix;
 				end;
 				
 				'b': writeln('b copies an image to an empty disk or optical drive');
-				'c': writeln('s invokes fsck or scandisk');
+				's': launchExt('ALYX_ENV','scav','');
 				'q': writeln('q exits to File menu');
-				'f': writeln('f invokes fdisk');
+				'f': launchExt('ALYX_ENV','dpart','');
 				'o': fpSystem('mount'); 	{ show Online volumes }
 				
 				'n': begin 	{ create New folder }
@@ -168,19 +168,54 @@ uses Classes,SysUtils,INIFiles,Unix;
 		
 		{$I+}
 	end;
-		
+	
+	procedure procMenu;
+		var
+			pid: integer;
+			
+		begin
+			repeat 
+			writeln('Processes: show-Processes, Kill-process, Nuke-process, show-Root-procs, Quit-to-main?');
+			readln(menuCmd);
+			case menuCmd of
+				'p': fpsystem('ps');
+				'r': fpsystem('ps -A');
+				'k': begin
+					write('kill pid:');
+					readln(pid);
+					fpsystem('kill ' + IntToStr(pid));
+				end;
+				'n': begin
+					write('nuke pid:');
+					readln(pid);
+					fpsystem('kill -9 ' + IntToStr(pid));
+				end;
+				'q': writeln('q exits to main menu');
+				'?': writeln('? prints man page');
+				'h': writeln('h also prints man page');
+				
+			else
+				writeln('Unfamiliar command.');
+			end;
+		until menuCmd = 'q';
+	end;
 	
 	procedure sysMenu;
 		begin
 			repeat 
-			writeln('Sysutils: Manage-processes, lash-Preferences, Backup-prefs, Startup-prefs, Validate, Console, Quit-to-main?');
+			writeln('Sysutils: Manage-processes, lash-Preferences, Backup-prefs, command-as-Root, Startup-prefs, Validate, Console, Quit-to-main?');
 			readln(menuCmd);
 			case menuCmd of
 				'p': writeln('p shows lash-preferences menu');
-				'm': writeln('m shows processes menu');
+				'm': procMenu;
 				'o': writeln('o redirects output to a file');
 				'v': writeln('v checksums specified file');
 				'b': writeln('b backs up your .alyxrc');
+				'r': begin 	{ run a shell command as root }
+					write('enter command to run as root:');
+					readln(pathname);
+					fpsystem('sudo ' + pathname);
+				end;
 				'c': fpsystem('bash'); 	{ just kicks you out to bash, then back when you're finished }
 				's': writeln('s starts the hvac gui');
 				'q': writeln('q exits to main menu');
@@ -236,7 +271,13 @@ uses Classes,SysUtils,INIFiles,Unix;
 					readln(pathname);
 					fpsystem(pathname);
 				end;
-				'w': launchExt('ALYX_ENV', 'browser', '');	
+				
+				'w': begin 	{ launch web browser with URL }
+					write('enter URL:');
+					readln(pathname);
+					launchExt('ALYX_ENV', 'browser', pathname);	
+				end;
+				
 				'g': begin	{ could replace with cURL or define in reg }
 					write('URL to grab: ');
 					readln(pathname);

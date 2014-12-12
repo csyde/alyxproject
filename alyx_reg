@@ -2,13 +2,19 @@
 ; Development version. Uses values for OS X.
 
 ; interactive partition editor
-dpart=fdisk
+dpart=open -a 'Disk Utility'
+
+; scavenger program
+scav=open -a 'Disk Utility'
 
 ; should be open (os x) or xdg-open (linux)
 editor=open
 
 ; image mount command
 imgMnt=hdiutil attach
+
+; image burn command
+imgWrt=hdiutil burn
 
 ; pascal-specific ide (Lazarus or fp should be default)
 
