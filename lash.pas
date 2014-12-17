@@ -19,7 +19,7 @@ program lash;
 {$mode objfpc}
 {$H+}	{ stfu about ansistrings in fpsystem. Also makes the long pathname problem go away. }
 
-uses Classes,SysUtils,INIFiles,Unix;
+uses Classes,SysUtils,INIFiles,Unix,md5;
 
 	var
 		menuCmd: char;
@@ -58,7 +58,20 @@ uses Classes,SysUtils,INIFiles,Unix;
 			extCmd := INI.ReadString(iniBlock, regKey,'');
 			fpsystem(extCmd + ' ' + fn);
 		end;
-			
+	
+	{ function testMd5 -- takes a file and an MD5 hash value, creates an MD5 hash from
+		the file, compares the two }
+		
+	function testMd5(path, phash: string): boolean;
+		var lhash: string;
+
+		begin 
+			lhash := MD5Print(MD5File(pathname));
+			if lhash = phash 
+				then testMd5 := true
+				else testMd5 := false;		
+		end;
+				
 	procedure diskMenu;
 		var
 			src: String; 
@@ -201,15 +214,28 @@ uses Classes,SysUtils,INIFiles,Unix;
 	end;
 	
 	procedure sysMenu;
+		var phash: string;
+			check: boolean;
+		
 		begin
 			repeat 
-			writeln('Sysutils: Manage-processes, lash-Preferences, Backup-prefs, command-as-Root, Startup-prefs, Validate, Console, Quit-to-main?');
+			writeln('Sysutils: Manage-processes, lash-Preferences, Backup-prefs, command-as-Root, Startup-prefs, Validate-MD5, Console, Quit-to-main?');
 			readln(menuCmd);
 			case menuCmd of
 				'p': writeln('p shows lash-preferences menu');
 				'm': procMenu;
 				'o': writeln('o redirects output to a file');
-				'v': writeln('v checksums specified file');
+				'v': begin
+					write('file to verify:');
+					readln(pathname);
+					write('paste in MD5 checksum: ');
+					readln(phash);
+					check := testMd5(pathname,phash);
+					if check = true
+						then writeln('pass')
+						else writeln('fail');
+				end;
+				
 				'b': writeln('b backs up your .alyxrc');
 				'r': begin 	{ run a shell command as root }
 					write('enter command to run as root:');
