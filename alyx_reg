@@ -1,6 +1,9 @@
 [ALYX_ENV]
 ; Development version. Uses values for OS X.
 
+; home directory for ALyX binaries
+homedir=/opt/alyx
+
 ; interactive partition editor
 dpart=open -a 'Disk Utility'
 
