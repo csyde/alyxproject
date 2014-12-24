@@ -20,6 +20,7 @@ Key definitions
 * dpart: default disk partitioning shell command. Should be an interactive environment; will usually be some permutation of fdisk or gparted.
 * editor: standard text editor to launch. Should default to nano so as to avoid pointless, decades-old religious wars.
 * fsckIt: default shell command for Scavenge function. Usually some permutation of fsck.
+* homedir: the location where ALyX binaries are stored. Should be /opt/alyx.
 * launchEnv: the list of programs for hvac to launch on startup. (This will be defined in a separate section of this document.)
 * lisaEm: the location of the LisaEm app
 * macEm: the location of the Mac emulator app (will generally be Mini vMac)
