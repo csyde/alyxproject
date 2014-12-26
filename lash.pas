@@ -80,16 +80,21 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 			
 		begin
 			repeat 
-			writeln('Disk-tools: Format, make Image, Mount, New folder, Unmount, Burn image, Scavenge, show Online disks');
+			writeln('Disk-tools: Format, make-Image, Mount-image, New folder, Unmount, Burn image, Scavenge, show Online disks');
 			readln(menuCmd);
 			case menuCmd of
-				'm': writeln('m mounts specified disk image or device');
-				'i': begin
-					writeln('source directory?');
+				'm': begin { For now, stick to mounting disk images }
+					write('mount which image file?');
 					readln(src);
-					writeln('volume name?');
+					launchExt('ALYX_ENV','imgMnt',src);
+				end;
+				
+				'i': begin
+					write('source directory?');
+					readln(src);
+					write('volume name?');
 					readln(vname);
-					writeln('image filename?');
+					write('image filename?');
 					readln(dest);
 					makeimage(src, dest, vname);
 				end;
