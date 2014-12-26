@@ -34,3 +34,14 @@ fsckIt=diskutil verify /
 ; default web browser
 
 browser=open /Applications/Safari.app
+
+[STARTUP]
+
+pascalIDE=open /Applications/Lazarus.app
+nativeIDE=open /Applications/Xcode.app
+lisaEnv=open /Applications/LisaEm.app
+macEnv=open /Applications/'mini vMac.app'
+lisaflag=false
+macflag=true
+pasflag=false
+natflag=false
