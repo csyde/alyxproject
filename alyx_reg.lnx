@@ -1,27 +1,51 @@
 [ALYX_ENV]
-; Development version. Uses values for Linux, specifically my personal Knoppix 7.4 install. Probably not useful.
+; Development version. Uses values for Linux amd64 (specifically, Knoppix 7.4)
+
+; home directory for ALyX binaries
+homedir=/opt/local/alyx
 
 ; interactive partition editor
 dpart=parted
 
-; text editor
+; scavenger program
+scav=sudo fsck
+
+; should be open (os x) or xdg-open (linux)
 editor=xdg-open
 
 ; image mount command
 imgMnt=hdiutil attach
 
+; image burn command
+imgWrt=hdiutil burn
+
 ; pascal-specific ide (Lazarus or fp should be default)
 
 pascalc=fpc
 
-; native OS IDE (Xcode for Mac, Code::Blocks or QT Creator for Linux, VSX/VSC for Windows
+; c compiler
 
-cc=fgcc
+cc=gcc
+
+; debugger
+
+db=gdb
 
 ; disk scan command
 
-fsckIt=diskutil verify /
+fsckIt=sudo fsck
 
-; default web browser 
+; default web browser
 
 browser=google-chrome
+
+[STARTUP]
+
+pascalIDE=open /Applications/Lazarus.app
+nativeIDE=open /Applications/Xcode.app
+lisaEnv=open /Applications/LisaEm.app
+macEnv=open /Applications/'mini vMac.app'
+lisaflag=false
+macflag=true
+pasflag=false
+natflag=false

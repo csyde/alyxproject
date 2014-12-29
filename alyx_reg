@@ -27,9 +27,13 @@ pascalc=fpc
 
 cc=clang
 
+; debugger
+
+db=lldb
+
 ; disk scan command
 
-fsckIt=diskutil verify /
+fsckIt=diskutil verifyVolume /
 
 ; default web browser
 

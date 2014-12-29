@@ -100,7 +100,7 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 				end;
 				
 				'b': writeln('b copies an image to an empty disk or optical drive');
-				's': launchExt('ALYX_ENV','scav','');
+				's': launchExt('ALYX_ENV','fsckIt','');
 				'q': writeln('q exits to File menu');
 				'f': launchExt('ALYX_ENV','dpart','');
 				'o': fpSystem('mount'); 	{ show Online volumes }
@@ -281,7 +281,11 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 					launchExt('ALYX_ENV','editor',pathname);
 				end;
 				
-				'd': writeln('d invokes debugger (default gdb)');
+				'd': begin { debug executable }
+					write('executable to debug? ');
+					readln(pathname);
+					launchExt('ALYX_ENV','db',pathname);
+				end;
 				
 				'p': begin 	{ compile pascal source file }
 					write('Pascal source file: ');
