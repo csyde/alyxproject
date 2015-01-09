@@ -89,7 +89,7 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 					launchExt('ALYX_ENV','imgMnt',src);
 				end;
 				
-				'i': begin
+				'i': begin { create disk image in Joliet format }
 					write('source directory?');
 					readln(src);
 					write('volume name?');
@@ -99,7 +99,12 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 					makeimage(src, dest, vname);
 				end;
 				
-				'b': writeln('b copies an image to an empty disk or optical drive');
+				'b': begin { burn image to optical disc }
+					write('Disk image to burn?');
+					readln(src);
+					launchExt('ALYX_ENV','imgWrt',src);
+				end;
+				
 				's': launchExt('ALYX_ENV','fsckIt','');
 				'q': writeln('q exits to File menu');
 				'f': launchExt('ALYX_ENV','dpart','');
