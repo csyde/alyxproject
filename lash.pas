@@ -62,11 +62,12 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 	{ function testMd5 -- takes a file and an MD5 hash value, creates an MD5 hash from
 		the file, compares the two }
 		
-	function testMd5(path, phash: string): boolean;
+	function testMd5(fn, phash: string): boolean;
 		var lhash: string;
 
 		begin 
-			lhash := MD5Print(MD5File(pathname));
+			lhash := MD5Print(MD5File(fn));
+			writeln(lhash);
 			if lhash = phash 
 				then testMd5 := true
 				else testMd5 := false;		
@@ -133,7 +134,7 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 			dest: String;
 			
 		begin
-			{$I-}
+			{$I-} { There is a very good reason to do this that I have completely forgotten. }
 			repeat 
 			writeln('File-mgr: Backup, Copy, Remove, Move, List, Where, New folder, Online-volumes, Disk-tools, set-Path, Quit-to-main?');
 			readln(menuCmd);
@@ -224,7 +225,7 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 	end;
 	
 	procedure sysMenu;
-		var phash: string;
+		var hash: string;
 			check: boolean;
 		
 		begin
@@ -239,8 +240,8 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 					write('file to verify:');
 					readln(pathname);
 					write('paste in MD5 checksum: ');
-					readln(phash);
-					check := testMd5(pathname,phash);
+					readln(hash);
+					check := testMd5(pathname,hash);
 					if check = true
 						then writeln('pass')
 						else writeln('fail');
