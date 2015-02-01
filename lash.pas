@@ -66,8 +66,8 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 		var lhash: string;
 
 		begin 
+			fn := trim(fn); { MD5File is not forgiving of spurious whitespace }
 			lhash := MD5Print(MD5File(fn));
-			writeln(lhash);
 			if lhash = phash 
 				then testMd5 := true
 				else testMd5 := false;		
@@ -152,7 +152,13 @@ uses Classes,SysUtils,INIFiles,Unix,md5;
 					fpsystem('mv ' + src + ' ' + dest);
 				end;
 				
-				'r': writeln('r deletes a file (y/n?)');
+				'r': begin 	{ delete a file }
+					write('file to delete:');
+					readln(pathname);
+					write('Are you sure you want to delete ' + pathname + ' ? (y/n)');
+					readln(src);
+					if src = 'y' then fpsystem('rm -rf	' + pathname) else writeln('operation canceled.');		
+				end;
 				
 				'p': begin 		{ set-Path (aka cd) }
 					write('change to: ');
