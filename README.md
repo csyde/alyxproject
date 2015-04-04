@@ -17,7 +17,7 @@ stata (STATionery Arranger -- named for a hideous Frank Gehry building at MIT) w
 Hardware
 --------
 
-The current plan is to use a Raspberry Pi B+ as the system board, with the Beaglebone Black as a secondary target and an off-the-shelf powered USB hub as power source and expansion backplane. The RPi will likely use a wireless keyboard and mouse with Wifi and Bluetooth added, but don't expect those to be visible to the emulators. 
+The current plan is to use a Raspberry Pi 2 Model B as the system board, with an off-the-shelf powered USB hub as power source and expansion backplane. The RPi will likely use a wireless keyboard and mouse with Wifi and Bluetooth added, but don't expect those to be visible to the emulators. 
 
 The case is approximately 4/5 scale, dictated by the choice of monitor (http://www.adafruit.com/products/1287, 10in HDMI 4 Pi kit). The shell will be painted plexiglas, mounted on a frame made of either PVC pipe or angle iron; sketches of both designs, as well as the templates for the front and side panels of the case, will be available here in LibreOffice (ODF) format. 
 
@@ -36,7 +36,7 @@ The following third-party software is expected to be required for the project an
 Issues
 ------
 
-* Lisaem is incredibly sluggish on RasPi. Dealing with this is an ongoing issue.
+* Lisaem is incredibly sluggish on the original RasPi. I've upgraded to a RPi 2.
 * No effort whatsoever will be made to support any compiler other than Free Pascal. GNU Pascal is stagnant, p2c and ETH Px are too archaic, and frankly, no dialects other than Delphi (which is what Free Pascal supports) matter anymore. FPC is open source, so live with it.
 * My Pascal code is terrible. Patches and general cleanup are welcome.
 
