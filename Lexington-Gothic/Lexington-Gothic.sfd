@@ -1,6 +1,10 @@
 SplineFontDB: 3.0
 FontName: Lexington-Gothic
+<<<<<<< HEAD
 FullName: Lexington Gothic
+=======
+FullName: Lexington Gothic Regular
+>>>>>>> origin/master
 FamilyName: Lexington
 Weight: Book
 Copyright: Copyright csyde 2015
