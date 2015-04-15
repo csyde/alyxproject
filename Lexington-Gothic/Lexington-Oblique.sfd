@@ -22,7 +22,7 @@ OS2Version: 2
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1428114007
-ModificationTime: 1428691791
+ModificationTime: 1429081341
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -78,7 +78,7 @@ ShortTable: maxp 16
   0
   0
 EndShort
-LangName: 1033 "" "" "Regular" "" "" "Version 1.0" "" "FontStruct is a trademark of FSI FontShop International GmbH" "http://fontstruct.com" "csyde" "+IBoAxAD6-Lexington Gothic+IBoAxAD5 was built with FontStruct+AAoA" "http://www.fontshop.com" "http://fontstruct.com/fontstructions/show/1134409" "Creative Commons Attribution Share Alike" "http://creativecommons.org/licenses/by-sa/3.0/" "" "" "" "" "Five big quacking zephyrs jolt my wax bed"
+LangName: 1033 "" "" "" "" "" "Version 1.0" "" "FontStruct is a trademark of FSI FontShop International GmbH" "http://fontstruct.com" "csyde" "+IBoAxAD6-Lexington Gothic+IBoAxAD5 was built with FontStruct+AAoA" "http://www.fontshop.com" "http://fontstruct.com/fontstructions/show/1134409" "Creative Commons Attribution Share Alike" "http://creativecommons.org/licenses/by-sa/3.0/" "" "" "" "" "Five big quacking zephyrs jolt my wax bed"
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: AGL For New Fonts
@@ -88,6 +88,7 @@ FitToEm: 1
 WinInfo: 80 16 4
 BeginPrivate: 0
 EndPrivate
+TeXData: 1 0 0 163840 81920 54613 294912 1048576 54613 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
 BeginChars: 65539 215
 
 StartChar: .notdef
@@ -2217,6 +2218,7 @@ SplineSet
  27 -128 l 1,11,-1
  -30 -128 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: g
