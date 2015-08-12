@@ -1,10 +1,6 @@
 SplineFontDB: 3.0
 FontName: Lexington-Gothic
-<<<<<<< HEAD
-FullName: Lexington Gothic
-=======
 FullName: Lexington Gothic Regular
->>>>>>> origin/master
 FamilyName: Lexington
 Weight: Book
 Copyright: Copyright csyde 2015
@@ -26,7 +22,7 @@ OS2Version: 2
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1428114007
-ModificationTime: 1428599126
+ModificationTime: 1439401351
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -82,6 +78,7 @@ ShortTable: maxp 16
   0
 EndShort
 LangName: 1033 "" "" "Regular" "FontStruct Lexington Gothic" "" "Version 1.0" "" "FontStruct is a trademark of FSI FontShop International GmbH" "http://fontstruct.com" "csyde" "+IBoAxAD6-Lexington Gothic+IBoAxAD5 was built with FontStruct+AAoA" "http://www.fontshop.com" "http://fontstruct.com/fontstructions/show/1134409" "Creative Commons Attribution Share Alike" "http://creativecommons.org/licenses/by-sa/3.0/" "" "" "" "" "Five big quacking zephyrs jolt my wax bed"
+DesignSize: 120
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: AGL For New Fonts
